@@ -17,16 +17,6 @@ let squareGrid = (num) => {
     }
 }
 
-squareGrid(10)
-
-let rowDiv = document.getElementsByClassName('col')
-
-for(let k = 0; k < rowDiv.length; k++){
-    rowDiv[k].addEventListener('mouseover',(e) => {
-        e.target.style.backgroundColor = randomRgb();
-    })
-}
-
 let randomRgb = () => {
     var r = Math.round, g = Math.random, c = 255;
     return `rgb(${r(g()*c)},${r(g()*c)},${r(g()*c)})`;
@@ -37,4 +27,28 @@ if(window.performance.navigation && window.performance.navigation.type === 1 ||
     .map((nav) => nav.type).includes('reload')){
     bod.style.background = randomRgb();
 }
+
 container.style.backgroundColor = 'white';
+
+let btn = document.createElement('button');
+btn.textContent = 'Reset';
+bod.insertBefore(btn, container)
+
+btn.addEventListener('click', () => {
+   let num = parseInt(prompt('Enter the number of squares for a new grid'));
+    if(Number.isInteger(num) && num <= 100){
+        container.textContent = '';
+        squareGrid(num);
+        colorRow();
+    }else if(Number.isInteger(num) && num > 100) alert('Enter a number below 100');
+    else alert('Enter a number');
+})
+
+let colorRow = () => {
+    let rowDiv = document.getElementsByClassName('col')
+    for(let k = 0; k < rowDiv.length; k++){
+        rowDiv[k].addEventListener('mouseover',(e) => {
+            e.target.style.backgroundColor = randomRgb();
+        })
+    }
+}
