@@ -30,7 +30,7 @@ if(window.performance.navigation && window.performance.navigation.type === 1 ||
 
 container.style.backgroundColor = 'white';
 
-let btn = document.createElement('button');
+let btn = document.createitElement('button');
 btn.textContent = 'Create a grid';
 bod.insertBefore(btn, container)
 
