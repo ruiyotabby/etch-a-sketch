@@ -5,7 +5,7 @@ let squareGrid = (num) => {
     for(let i = 0; i < num; i++){
         let colDiv = document.createElement('div');
         colDiv.classList.add('row')
-        colDiv.setAttribute(`style`, `width: ${0.6*num}em;`)
+        colDiv.setAttribute(`style`, `width: ${0.8*num}em;`)
         container.appendChild(colDiv);
         
         for(let j = 0; j < num; j++){
@@ -31,17 +31,17 @@ if(window.performance.navigation && window.performance.navigation.type === 1 ||
 container.style.backgroundColor = 'white';
 
 let btn = document.createElement('button');
-btn.textContent = 'Reset';
+btn.textContent = 'Create a grid';
 bod.insertBefore(btn, container)
 
 btn.addEventListener('click', () => {
-   let num = parseInt(prompt('Enter the number of squares for a new grid'));
+   let num = parseInt(prompt('Enter the number of squares for a new grid. It should not be grater than 100'));
     if(Number.isInteger(num) && num <= 100){
         container.textContent = '';
         squareGrid(num);
         colorRow();
     }else if(Number.isInteger(num) && num > 100) alert('Enter a number below 100');
-    else alert('Enter a number');
+    else alert('Enter a number to create a grid');
 })
 
 let colorRow = () => {
