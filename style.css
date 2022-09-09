@@ -1,6 +1,6 @@
 .col{
     border: 0.5px solid black;
-    height: 1vh;
+    height: 0.6em;
 }
 
 .row{
@@ -12,6 +12,13 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10vh;
     gap: 5vh;
+}
+
+h2{
+    font-size: 2em;
+}
+
+button{
+    height: 2em;
 }
